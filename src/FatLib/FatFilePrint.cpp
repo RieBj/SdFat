@@ -105,10 +105,6 @@ bool FatFile::ls(print_t* pr, uint8_t flags, uint8_t indent) {
   rewind();
   while (file.openNext(this, O_RDONLY)) {
     if (!file.isHidden() || (flags & LS_A)) {
-    // indent for dir level
-      for (uint8_t i = 0; i < indent; i++) {
-        //pr->write(' ');
-      }
       if (flags & LS_DATE) {
         file.printModifyDateTime(pr);
         pr->write(' ');
@@ -121,12 +117,12 @@ bool FatFile::ls(print_t* pr, uint8_t flags, uint8_t indent) {
       if (file.isDir()) {
         pr->write('/');
       }
-      if ((flags & LS_R) && file.isDir()) {
+      /*if ((flags & LS_R) && file.isDir()) {
         if (!file.ls(pr, flags, indent + 2)) {
           DBG_FAIL_MACRO;
           goto fail;
         }
-      }
+      }*/
     }
     file.close();
     pr->write('\r');
