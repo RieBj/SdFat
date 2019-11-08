@@ -107,7 +107,7 @@ bool FatFile::ls(print_t* pr, uint8_t flags, uint8_t indent) {
     if (!file.isHidden() || (flags & LS_A)) {
     // indent for dir level
       for (uint8_t i = 0; i < indent; i++) {
-        pr->write(' ');
+        //pr->write(' ');
       }
       if (flags & LS_DATE) {
         file.printModifyDateTime(pr);
