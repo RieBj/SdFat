@@ -121,8 +121,8 @@ bool FatFile::ls(print_t* pr, uint8_t flags, uint8_t indent) {
       if (file.isDir()) {
         pr->write('/');
       }
-      pr->write('\r');
-      pr->write('\n');
+      //pr->write('\r');
+      //pr->write('\n');
       if ((flags & LS_R) && file.isDir()) {
         if (!file.ls(pr, flags, indent + 2)) {
           DBG_FAIL_MACRO;
